@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9.2-slim-buster
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ RUN apt-get update \
     && apt-get clean
 
 RUN apt-get update \
-    && apt-get install -y binutils libproj-dev gdal-bin python-gdal python3-gdal    
+    && apt-get install -y binutils libproj-dev gdal-bin python-gdal python3-gdal
 
 RUN pip install --upgrade pip
 
