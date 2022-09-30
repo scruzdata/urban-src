@@ -11,19 +11,22 @@ docker
 
 ```
 git clone https://github.com/scruzdata/urban-src.git
-cd django-urban-api
+cd urban_src
+ - add .env 
  - run the command: docker-compose up --build -d --remove-orphans
  - run the migrate command: docker-compose exec api python3 manage.py migrate --noinput
  - create superuser: docker-compose exec api python3 manage.py createsuperuser	
- - then run the command: docker-compose exec api python3 manage.py shell
+
+Check django admin in the browser: http://localhost:8080/admin/
+
+- then run the command: docker-compose exec api python3 manage.py shell
 
 to load assets data to backend, run these commands:
 >>> from properties import load
 >>> load.run()
 >>> quit()
 
-0. Check django admin
-http://localhost:8080/admin/
+
 
 ### API Requests ###
 Open Postman and make the following get requests
