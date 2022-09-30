@@ -10,7 +10,7 @@ docker
 ## Run the Application
 
 ```
-git clone https://github.com/....
+git clone https://github.com/scruzdata/urban-src.git
 cd django-urban-api
  - run the command: docker-compose up --build -d --remove-orphans
  - run the migrate command: docker-compose exec api python3 manage.py migrate --noinput
