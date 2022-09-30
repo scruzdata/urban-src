@@ -41,6 +41,8 @@ GET http://localhost:8080/data/retails/?id_uda=54-94183090
     
 GET http://localhost:8080/data/property-by-distance-and-coordinates/?distance=700&latitude=40&longitude=-3
 
+4. down volumen
+docker-compose down
 
 ```
 
