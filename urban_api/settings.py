@@ -56,9 +56,9 @@ DJANGO_APPS = [
     "django.contrib.gis",
 ]
 
-THIRD_PARTY_APPS = ["rest_framework", "rest_framework_gis"]
+THIRD_PARTY_APPS = ['django_admin_listfilter_dropdown', "rest_framework", "rest_framework_gis", 'rangefilter', ]
 
-PROJECTY_APPS = []
+PROJECTY_APPS = ['properties.apps.PropertiesConfig']
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECTY_APPS
 
