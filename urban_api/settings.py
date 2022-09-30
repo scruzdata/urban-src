@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,14 +32,14 @@ if os.name == 'nt':
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-env = environ.Env(DEBUG=(bool, False))
-
-environ.Env.read_env(env_file=".env")
+# env = environ.Env(DEBUG=(bool, False))
+#
+# environ.Env.read_env(env_file=".env")
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  env("SECRET_KEY")
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -94,15 +95,21 @@ WSGI_APPLICATION = 'urban_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+POSTGRES_USER = config('POSTGRES_USER')
+POSTGRES_PASS = config('POSTGRES_PASS')
+POSTGRES_DBNAME = config('POSTGRES_DBNAME')
+DATABASE = config('DATABASE')
+PG_HOST = config('PG_HOST')
+PG_PORT = config('PG_PORT')
 
 DATABASES = {
     "default": {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
-        "NAME": env("POSTGRES_DBNAME"),
-        "USER": env("POSTGRES_USER"),
-        "PASSWORD": env("POSTGRES_PASS"),
-        "HOST": env("PG_HOST"),
-        "PORT": env("PG_PORT"),
+        "NAME": POSTGRES_DBNAME,
+        "USER": POSTGRES_USER,
+        "PASSWORD": POSTGRES_PASS,
+        "HOST": PG_HOST,
+        "PORT": PG_PORT,
     }
 }
 
