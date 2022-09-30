@@ -61,3 +61,4 @@ def run():
 
         if properties:
             Property.objects.bulk_create(properties)
+        print(f">> Properties already saved!")
